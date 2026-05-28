@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a1a, #1a1a2e);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #00ff88;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.winsh-header {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.tab-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #00ff88;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: #00ff88;
+  color: #0a0a1a;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-item {
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.shop-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ff88;
+}
+
+.item-icon { font-size: 40px; margin-bottom: 10px; }
+.item-name { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+.item-price { color: #ffd700; font-weight: bold; }
+.item-price::before { content: "💎 "; }
+
+.buy-btn, .equip-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.buy-btn { background: #ffd700; color: #1a1a2e; }
+.equip-btn { background: #00ff88; color: #1a1a2e; }

@@ -1,0 +1,111 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: linear-gradient(135deg, #0a0a1a, #1a1a2e);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #00ff88;
+}
+
+.back-btn, .shop-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.back-btn:hover, .shop-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #667eea;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00ff88, #00ccff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.profile-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px;
+  text-align: center;
+  width: 350px;
+  transition: 0.3s;
+}
+
+.avatar {
+  font-size: 80px;
+  margin-bottom: 15px;
+}
+
+.winsh-balance {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.badge, .title {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.equipped-section {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 30px;
+  width: 350px;
+}
+
+.equipped-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.equip-item {
+  background: rgba(0,255,136,0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) {
+  .profile-card, .equipped-section { width: 90%; }
+}

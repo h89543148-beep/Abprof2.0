@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | AB-PROF</title>
+  <link rel="stylesheet" href="profile.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="../firebase.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="back-btn" onclick="window.location.href='../Index.html'">← Back</button>
+    <div class="nav-logo">⚡ AB-PROF</div>
+    <button class="shop-btn" onclick="window.location.href='wishshop.html'">🛒 Shop</button>
+  </nav>
+
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="avatar">👤</div>
+      <h2 id="userName">Loading...</h2>
+      <div class="winsh-balance">💎 <span id="winshAmount">0</span> Winsh</div>
+      <div class="badge" id="userBadge">🏆 Player</div>
+      <div class="title" id="userTitle">⚡ Challenger</div>
+    </div>
+    <div class="equipped-section">
+      <h3>✨ Equipped Styles</h3>
+      <div class="equipped-grid">
+        <div class="equip-item" id="borderEquip">Border: <span>None</span></div>
+        <div class="equip-item" id="badgeEquip">Badge: <span>None</span></div>
+        <div class="equip-item" id="themeEquip">Theme: <span>None</span></div>
+        <div class="equip-item" id="titleEquip">Title: <span>None</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+      var user = JSON.parse(localStorage.getItem('currentUser'));
+      if (!user) {
+        window.location.href = '../login/login.html';
+        return;
+      }
+      
+      // ✅ UID use kar rahe hain (jo ab save ho raha hai)
+      var userId = user.uid;  // ← YEH AB UNDEFINED NAHI HOGI
+      console.log("Loading profile for UID:", userId);
+      
+      document.getElementById('userName').textContent = user.username;
+      
+      var db = firebase.database();
+      
+      db.ref('users/' + userId).once('value').then(function(snap) {
+        var data = snap.val() || {};
+        var winsh = data.winsh || 0;
+        var equipped = data.equipped || {};
+        
+        document.getElementById('winshAmount').textContent = winsh;
+        console.log("Loaded equipped:", equipped);
+        
+        // Border Names
+        var borderNames = { 
+          'green-neon': 'Green Neon', 
+          'fire': 'Fire Border', 
+          'gold': 'Gold Border' 
+        };
+        
+        // Badge Names
+        var badgeNames = { 
+          'rookie': 'Rookie', 
+          'pro': 'Pro', 
+          'master': 'Master' 
+        };
+        
+        // Show equipped items
+        if (equipped.border) {
+          document.getElementById('borderEquip').innerHTML = 'Border: <span>' + (borderNames[equipped.border] || equipped.border) + '</span>';
+        }
+        
+        if (equipped.badge) {
+          document.getElementById('badgeEquip').innerHTML = 'Badge: <span>' + (badgeNames[equipped.badge] || equipped.badge) + '</span>';
+          document.getElementById('userBadge').textContent = badgeNames[equipped.badge] || equipped.badge;
+        }
+        
+        if (equipped.theme) {
+          document.getElementById('themeEquip').innerHTML = 'Theme: <span>' + equipped.theme + '</span>';
+        }
+        
+        if (equipped.title) {
+          document.getElementById('titleEquip').innerHTML = 'Title: <span>' + equipped.title + '</span>';
+          document.getElementById('userTitle').textContent = equipped.title;
+        }
+        
+      }).catch(function(err) {
+        console.error("Error:", err);
+      });
+    };
+</script>
+<!-- Firebase SDKs - Pehle ye load honge -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<!-- Then YOUR firebase.js -->
+<script src="firebase.js"></script>
+
+<!-- Then other scripts -->
+<script src="profil.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1a0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0000;stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Red glow gradient -->
+    <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff2200;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#ff2200;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Shape gradient -->
+    <linearGradient id="shapeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#cc0000" />
+      <stop offset="50%" style="stop-color:#880000" />
+      <stop offset="100%" style="stop-color:#440000" />
+    </linearGradient>
+
+    <!-- 3D top face gradient -->
+    <linearGradient id="topFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4422" />
+      <stop offset="100%" style="stop-color:#cc1100" />
+    </linearGradient>
+
+    <!-- Star gradient -->
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff" />
+      <stop offset="100%" style="stop-color:#ffcccc" />
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Strong glow filter -->
+    <filter id="strongGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Text glow -->
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip path for cut shape -->
+    <clipPath id="hexClip">
+      <polygon points="200,30 340,90 370,200 340,310 200,370 60,310 30,200 60,90"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGrad)" rx="30"/>
+
+  <!-- Outer red glow -->
+  <ellipse cx="200" cy="200" rx="180" ry="180" fill="url(#redGlow)" opacity="0.6"/>
+
+  <!-- ===== CUT HEXAGON SHAPE — 3D Effect ===== -->
+
+  <!-- Shadow layer (3D depth) -->
+  <polygon
+    points="208,38 348,98 378,208 348,318 208,378 68,318 38,208 68,98"
+    fill="#330000"
+    opacity="0.8"
+  />
+
+  <!-- Main shape — dark red base -->
+  <polygon
+    points="200,35 340,95 370,200 340,305 200,365 60,305 30,200 60,95"
+    fill="url(#shapeGrad)"
+    stroke="#ff3300"
+    stroke-width="1.5"
+    filter="url(#glow)"
+  />
+
+  <!-- Top face highlight (3D effect) -->
+  <polygon
+    points="200,35 340,95 330,100 200,45 70,100 60,95"
+    fill="url(#topFace)"
+    opacity="0.7"
+  />
+
+  <!-- Inner dark shape -->
+  <polygon
+    points="200,60 320,110 345,200 320,290 200,340 80,290 55,200 80,110"
+    fill="#1a0000"
+    opacity="0.85"
+  />
+
+  <!-- Cut diagonal lines on shape (professional look) -->
+  <line x1="60" y1="95" x2="340" y2="305" stroke="#ff330022" stroke-width="1"/>
+  <line x1="340" y1="95" x2="60" y2="305" stroke="#ff330022" stroke-width="1"/>
+
+  <!-- ===== BRAIN + STAR ICON ===== -->
+
+  <!-- Brain outline (simplified professional) -->
+  <g filter="url(#glow)" opacity="0.9">
+    <!-- Left brain -->
+    <path d="M155,155 C135,145 120,155 118,170 C115,185 122,198 135,202 C128,210 128,225 138,230 C135,240 140,252 152,255 C155,265 165,270 175,265 L175,155 Z"
+      fill="none" stroke="#ff4422" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Right brain -->
+    <path d="M245,155 C265,145 280,155 282,170 C285,185 278,198 265,202 C272,210 272,225 262,230 C265,240 260,252 248,255 C245,265 235,270 225,265 L225,155 Z"
+      fill="none" stroke="#ff4422" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Brain center line -->
+    <line x1="200" y1="155" x2="200" y2="265" stroke="#ff4422" stroke-width="2" stroke-dasharray="5,4"/>
+
+    <!-- Brain connection top -->
+    <path d="M175,155 C185,148 215,148 225,155" fill="none" stroke="#ff4422" stroke-width="2.5"/>
+
+    <!-- Brain wrinkles left -->
+    <path d="M140,175 C148,170 155,175 148,183" fill="none" stroke="#ff6644" stroke-width="1.5"/>
+    <path d="M132,200 C142,195 150,202 144,210" fill="none" stroke="#ff6644" stroke-width="1.5"/>
+    <path d="M138,228 C148,223 156,228 150,236" fill="none" stroke="#ff6644" stroke-width="1.5"/>
+
+    <!-- Brain wrinkles right -->
+    <path d="M260,175 C252,170 245,175 252,183" fill="none" stroke="#ff6644" stroke-width="1.5"/>
+    <path d="M268,200 C258,195 250,202 256,210" fill="none" stroke="#ff6644" stroke-width="1.5"/>
+    <path d="M262,228 C252,223 244,228 250,236" fill="none" stroke="#ff6644" stroke-width="1.5"/>
+  </g>
+
+  <!-- ===== STAR in center of brain ===== -->
+  <g filter="url(#strongGlow)">
+    <!-- Star shape -->
+    <polygon
+      points="200,172 205,188 222,188 209,198 214,214 200,205 186,214 191,198 178,188 195,188"
+      fill="url(#starGrad)"
+      stroke="#ffffff"
+      stroke-width="1"
+      opacity="0.95"
+    />
+  </g>
+
+  <!-- Star inner glow -->
+  <polygon
+    points="200,178 203,188 214,188 206,194 209,205 200,199 191,205 194,194 186,188 197,188"
+    fill="#ff6644"
+    opacity="0.5"
+  />
+
+  <!-- ===== AB-PROF TEXT ===== -->
+
+  <!-- AB-PROF main text -->
+  <text
+    x="200" y="308"
+    font-family="'Arial Black', 'Impact', sans-serif"
+    font-size="36"
+    font-weight="900"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="4"
+    filter="url(#textGlow)"
+  >AB-PROF</text>
+
+  <!-- Text red underline glow -->
+  <rect x="95" y="314" width="210" height="3" rx="2" fill="#ff3300" filter="url(#glow)" opacity="0.9"/>
+
+  <!-- Tagline -->
+  <text
+    x="200" y="338"
+    font-family="'Arial', sans-serif"
+    font-size="11"
+    fill="#ff6644"
+    text-anchor="middle"
+    letter-spacing="6"
+    opacity="0.85"
+  >QUIZ MASTER</text>
+
+  <!-- ===== CORNER DECORATIONS ===== -->
+
+  <!-- Top left cut decoration -->
+  <line x1="30" y1="60" x2="70" y2="30" stroke="#ff330055" stroke-width="1.5"/>
+  <line x1="50" y1="25" x2="80" y2="55" stroke="#ff330033" stroke-width="1"/>
+
+  <!-- Top right cut decoration -->
+  <line x1="370" y1="60" x2="330" y2="30" stroke="#ff330055" stroke-width="1.5"/>
+  <line x1="350" y1="25" x2="320" y2="55" stroke="#ff330033" stroke-width="1"/>
+
+  <!-- Bottom left cut decoration -->
+  <line x1="30" y1="340" x2="70" y2="370" stroke="#ff330055" stroke-width="1.5"/>
+
+  <!-- Bottom right cut decoration -->
+  <line x1="370" y1="340" x2="330" y2="370" stroke="#ff330055" stroke-width="1.5"/>
+
+  <!-- ===== OUTER RING ===== -->
+  <polygon
+    points="200,15 355,82 385,200 355,318 200,385 45,318 15,200 45,82"
+    fill="none"
+    stroke="#ff3300"
+    stroke-width="1"
+    opacity="0.3"
+  />
+
+  <!-- Dot accents -->
+  <circle cx="200" cy="15" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="355" cy="82" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="385" cy="200" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="355" cy="318" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="200" cy="385" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="45" cy="318" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="15" cy="200" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+  <circle cx="45" cy="82" r="3" fill="#ff3300" opacity="0.6" filter="url(#glow)"/>
+
+</svg>

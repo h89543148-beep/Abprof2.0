@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | AB-PROF</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="signup-card">
+      <div class="logo">⚡ AB-PROF</div>
+      <h2>Create Account</h2>
+      
+      <form id="signupForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+        
+        <button type="submit" id="signupBtn">Sign Up</button>
+        
+        <div id="errorMsg" class="error-msg"></div>
+      </form>
+      
+      <p class="login-link">
+        Already have account? <a href="../login/login.html">Login</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FIREBASE SCRIPTS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- FIREBASE CONFIG -->
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyD7RwL8kwQ91P1vcPhXnxFNFIDQsWdUfhE",
+      authDomain: "ad-hoc-d078c.firebaseapp.com",
+      databaseURL: "https://ad-hoc-d078c-default-rtdb.firebaseio.com",
+      projectId: "ad-hoc-d078c",
+      storageBucket: "ad-hoc-d078c.firebasestorage.app",
+      messagingSenderId: "485452494263",
+      appId: "1:485452494263:web:edacb32bc6f1ed597a6432"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- SIGNUP SCRIPT -->
+  <script src="signup.js"></script>
+</body>
+</html>

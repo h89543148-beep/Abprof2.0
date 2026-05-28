@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard | Quiz App</title>
+  <link rel="stylesheet" href="leaderboard.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <button class="back-btn" 
+      onclick="window.location.href='../Index.html'">
+      ⬅️ Back
+    </button>
+    <div class="nav-logo">🏆 Leaderboard</div>
+    <button class="clear-btn" id="clearBtn">🗑️ Clear</button>
+  </nav>
+
+  <!-- ===== MAIN CONTAINER ===== -->
+  <div class="container">
+
+    <!-- Top 3 Section -->
+    <div class="top3-section" id="top3Section">
+
+      <!-- 2nd Place -->
+      <div class="top-card second" id="second">
+        <div class="top-avatar">🥈</div>
+        <div class="top-name" id="name2">---</div>
+        <div class="top-score" id="score2">0</div>
+      </div>
+
+      <!-- 1st Place -->
+      <div class="top-card first" id="first">
+        <div class="top-avatar">🥇</div>
+        <div class="top-name" id="name1">---</div>
+        <div class="top-score" id="score1">0</div>
+      </div>
+
+      <!-- 3rd Place -->
+      <div class="top-card third" id="third">
+        <div class="top-avatar">🥉</div>
+        <div class="top-name" id="name3">---</div>
+        <div class="top-score" id="score3">0</div>
+      </div>
+
+    </div>
+
+    <!-- Full List -->
+    <div class="list-section">
+      <h2 class="list-title">All Players</h2>
+      <div class="leaderboard-list" id="leaderboardList">
+        <!-- JS se aayega -->
+      </div>
+    </div>
+
+    <!-- Empty Message -->
+    <div class="empty-msg" id="emptyMsg" style="display:none;">
+      <p>😕 Abhi koi data nahi hai!</p>
+      <p>Quiz khelo aur leaderboard mein aao!</p>
+    </div>
+
+  </div>
+
+<script type="module" src="leaderboard.js"></script>
+</body>
+</html>

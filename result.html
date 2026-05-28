@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result | Quiz App</title>
+  <link rel="stylesheet" href="result.css" />
+</head>
+<body>
+
+  <!-- ===== MAIN CONTAINER ===== -->
+  <div class="container">
+
+    <!-- Trophy -->
+    <div class="trophy" id="trophy">🏆</div>
+
+    <!-- Result Title -->
+    <h1 class="result-title" id="resultTitle">Quiz Khatam!</h1>
+
+    <!-- Result Message -->
+    <p class="result-msg" id="resultMsg">Tumne bahut accha kiya!</p>
+
+    <!-- Score Card -->
+    <div class="score-card">
+
+      <div class="score-item">
+        <h2 id="scoreText">0</h2>
+        <p>Score</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="score-item">
+        <h2 id="percentText">0%</h2>
+        <p>Percentage</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="score-item">
+        <h2 id="totalText">0</h2>
+        <p>Total</p>
+      </div>
+
+    </div>
+
+    <!-- Category -->
+    <div class="category-badge" id="categoryBadge">
+      General Knowledge
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+
+      <button class="btn-play" 
+        onclick="window.location.href='../Index.html'">
+        🔄 Dobara Khelo
+      </button>
+
+      <button class="btn-leader" 
+        onclick="window.location.href='../leaderboard/leaderboard.html'">
+        🏆 Leaderboard
+      </button>
+
+      <button class="btn-home" 
+        onclick="window.location.href='../Index.html'">
+        🏠 Home
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="result.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | AB-PROF</title>
+  <link rel="stylesheet" href="Index.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <img src="ab-prof-logo.svg" width="35" height="35" alt="logo"/>
+    AB-PROF
+  </div>
+  <div class="nav-right">
+    <button class="profile-btn" onclick="location.href='profile/profile.html'">👤</button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <span class="user-name" id="userName">Guest</span>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </div>
+</nav>
+
+  <!-- ========== MAIN CONTAINER ========== -->
+  <div class="container">
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <h1>Welcome back, <span id="welcomeName">Guest</span>! 👋</h1>
+      <p>Aaj kaunsa quiz kheloge?</p>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+      <div class="stat-card">
+        <h3 id="totalQuiz">0</h3>
+        <p>Quiz Played</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="bestScore">0%</h3>
+        <p>Best Score</p>
+      </div>
+      <div class="stat-card">
+        <h3 id="totalPoints">0</h3>
+        <p>Total Points</p>
+      </div>
+    </div>
+
+    <!-- Categories Title -->
+    <div class="section-title">
+      <h2>📚 Quiz Categories</h2>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="categories">
+      <div class="category-card" id="cat-general">
+        <div class="cat-info">
+          <div class="cat-icon">📚</div>
+          <div class="cat-details">
+            <h3>General Knowledge</h3>
+            <p>10 Questions • 30 sec each</p>
+          </div>
+        </div>
+        <button class="play-btn">▶ Play</button>
+      </div>
+
+      <div class="category-card" id="cat-science">
+        <div class="cat-info">
+          <div class="cat-icon">🔬</div>
+          <div class="cat-details">
+            <h3>Science</h3>
+            <p>10 Questions • 30 sec each</p>
+          </div>
+        </div>
+        <button class="play-btn">▶ Play</button>
+      </div>
+
+      <div class="category-card" id="cat-math">
+        <div class="cat-info">
+          <div class="cat-icon">🔢</div>
+          <div class="cat-details">
+            <h3>Mathematics</h3>
+            <p>10 Questions • 30 sec each</p>
+          </div>
+        </div>
+        <button class="play-btn">▶ Play</button>
+      </div>
+
+      <div class="category-card" id="cat-custom">
+        <div class="cat-info">
+          <div class="cat-icon">🎮</div>
+          <div class="cat-details">
+            <h3>Gaming</h3>
+            <p>Custom Questions</p>
+          </div>
+        </div>
+        <button class="play-btn">▶ Play</button>
+      </div>
+
+      <div class="category-card multiplayer-card" id="cat-multiplayer">
+        <div class="cat-info">
+          <div class="cat-icon">⚡</div>
+          <div class="cat-details">
+            <h3>Multiplayer</h3>
+            <p>Challenge Your Friends!</p>
+          </div>
+        </div>
+        <button class="play-btn">▶ Play</button>
+      </div>
+    </div>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-header" id="leaderboardHeader">
+        <h3>🏆 Leaderboard</h3>
+      </div>
+      <div class="leaderboard-content" id="leaderboardSection">
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Score</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody">
+            <tr>
+              <td colspan="4" class="leaderboard-empty">
+                Loading...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="view-all-btn" id="viewAllBtn">
+          View Full Leaderboard →
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyD7RwL8kwQ91P1vcPhXnxFNFIDQsWdUfhE",
+      authDomain: "ad-hoc-d078c.firebaseapp.com",
+      databaseURL: "https://ad-hoc-d078c-default-rtdb.firebaseio.com",
+      projectId: "ad-hoc-d078c",
+      storageBucket: "ad-hoc-d078c.firebasestorage.app",
+      messagingSenderId: "485452494263",
+      appId: "1:485452494263:web:edacb32bc6f1ed597a6432"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="Index.js"></script>
+</body>
+</html>

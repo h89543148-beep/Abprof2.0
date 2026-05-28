@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiplayer | AB-PROF</title>
+  <link rel="stylesheet" href="multiplayer.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <button id="backBtn" class="back-btn">⬅ Back</button>
+    <div class="logo">⚡ AB-PROF</div>
+    <div class="empty"></div>
+  </nav>
+
+  <!-- Lobby Screen -->
+<div id="lobbyScreen" class="screen">
+  <h2>⚡ Multiplayer Mode</h2>
+  <p>Dost ko challenge karo!</p>
+  
+  <button id="createRoomBtn" class="btn-primary">🎮 Room Banao (1v1)</button>
+  <button id="createRelayBtn" class="btn-primary">⚡ Relay Mode (4 Players)</button>
+  
+  <button id="joinRoomBtn" class="btn-secondary">🔗 Room Join Karo</button>
+  <input type="text" id="roomCodeInput" placeholder="Room Code likho...">
+  <div id="errorMsg" class="error-msg"></div>
+</div>
+  <!-- Waiting Screen -->
+  <div id="waitingScreen" class="screen hidden">
+    <h2>Room Code: <span id="displayRoomCode">---</span></h2>
+    <p id="player1Name">Player 1</p>
+    <p id="player2Name">Player 2</p>
+    <p id="player2Status">🔄 Waiting...</p>
+    <p id="waitingMsg">Dusra player wait kar raha hai...</p>
+    <button id="copyBtn" class="btn-primary">📋 Copy Code</button>
+    <button id="cancelBtn" class="btn-secondary">❌ Cancel</button>
+  </div>
+
+  <!-- Quiz Screen -->
+  <div id="quizScreen" class="screen hidden">
+    <div class="scores">
+      <div><span id="p1Name">P1</span>: <span id="p1Score">0</span></div>
+      <div><span id="p2Name">P2</span>: <span id="p2Score">0</span></div>
+    </div>
+    <div class="question-container">
+      <div id="qNum">1/10</div>
+      <div id="questionText">Question...</div>
+      <div id="timerCircle" class="timer-circle">
+        <span id="timerText">30</span>
+      </div>
+    </div>
+    <div class="options">
+      <button class="option-btn"></button>
+      <button class="option-btn"></button>
+      <button class="option-btn"></button>
+      <button class="option-btn"></button>
+    </div>
+    <p id="opponentStatus">👤 Opponent answer kar raha hai...</p>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="resultScreen" class="screen hidden">
+    <div id="resultIcon">🏆</div>
+    <h2 id="resultTitle">Jeet Gaye!</h2>
+    <p><span id="finalP1Name">P1</span>: <span id="finalP1Score">0</span></p>
+    <p><span id="finalP2Name">P2</span>: <span id="finalP2Score">0</span></p>
+    <button class="btn-primary" onclick="window.location.href='../Index.html'">Home</button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="questions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyD7RwL8kwQ91P1vcPhXnxFNFIDQsWdUfhE",
+      authDomain: "ad-hoc-d078c.firebaseapp.com",
+      databaseURL: "https://ad-hoc-d078c-default-rtdb.firebaseio.com",
+      projectId: "ad-hoc-d078c",
+      storageBucket: "ad-hoc-d078c.firebasestorage.app",
+      messagingSenderId: "485452494263",
+      appId: "1:485452494263:web:edacb32bc6f1ed597a6432"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="multiplayer.js"></script>
+</body>
+</html>

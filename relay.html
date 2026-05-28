@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relay Mode | AB-PROF</title>
+  <link rel="stylesheet" href="relay.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <button id="backBtn" class="back-btn">⬅ Back</button>
+    <div class="logo">⚡ AB-PROF RELAY</div>
+    <div class="empty"></div>
+  </nav>
+
+  <!-- Lobby Screen -->
+  <div id="lobbyScreen" class="screen">
+    <h2>⚡ Relay Mode</h2>
+    <p>4 Players, Sequential Battle!</p>
+    <button id="createRelayBtn" class="btn-primary">🎮 Create Relay Room</button>
+    <button id="joinRelayBtn" class="btn-secondary">🔗 Join Relay Room</button>
+    <input type="text" id="relayCodeInput" placeholder="Room Code likho...">
+    <div id="errorMsg" class="error-msg"></div>
+  </div>
+
+  <!-- Waiting Screen -->
+  <div id="waitingScreen" class="screen hidden">
+    <h2>Room Code: <span id="displayRelayCode">---</span></h2>
+    <p class="subtitle">Waiting for players...</p>
+    
+    <div class="players-waiting">
+      <div class="player-slot">
+        <span id="p1NameWait">Slot 1</span>
+        <span id="p1StatusWait">🔄</span>
+      </div>
+      <div class="player-slot">
+        <span id="p2NameWait">Slot 2</span>
+        <span id="p2StatusWait">🔄</span>
+      </div>
+      <div class="player-slot">
+        <span id="p3NameWait">Slot 3</span>
+        <span id="p3StatusWait">🔄</span>
+      </div>
+      <div class="player-slot">
+        <span id="p4NameWait">Slot 4</span>
+        <span id="p4StatusWait">🔄</span>
+      </div>
+    </div>
+
+    <p id="waitingMsg">Sab players ready ka wait kar raha hai...</p>
+    <button id="copyRelayBtn" class="btn-primary">📋 Copy Code</button>
+    <button id="cancelRelayBtn" class="btn-secondary">❌ Cancel</button>
+  </div>
+
+  <!-- Relay Game Screen -->
+  <div id="relayGameScreen" class="screen hidden">
+    <div class="relay-header">
+      <div class="current-player">
+        <h3 id="currentPlayerName">Player 1</h3>
+        <p id="currentPlayerTurn">Your Turn! Q<span id="qNum">1</span>/4</p>
+      </div>
+      <div class="timer-relay">
+        <div id="timerCircleRelay" class="timer-circle-relay">
+          <span id="timerTextRelay">30</span>s
+        </div>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <p id="questionTextRelay">Loading question...</p>
+    </div>
+
+    <div class="options-relay">
+      <button class="option-btn-relay"></button>
+      <button class="option-btn-relay"></button>
+      <button class="option-btn-relay"></button>
+      <button class="option-btn-relay"></button>
+    </div>
+
+    <button id="hintBtnRelay" class="btn-hint">💡 Hint</button>
+    <p id="hintTextRelay" class="hint-text"></p>
+
+    <div class="relay-scores">
+      <div class="score-item">
+        <span id="p1NameScore">P1</span>: <span id="p1ScoreRelay">0</span>
+      </div>
+      <div class="score-item">
+        <span id="p2NameScore">P2</span>: <span id="p2ScoreRelay">0</span>
+      </div>
+      <div class="score-item">
+        <span id="p3NameScore">P3</span>: <span id="p3ScoreRelay">0</span>
+      </div>
+      <div class="score-item">
+        <span id="p4NameScore">P4</span>: <span id="p4ScoreRelay">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="resultScreenRelay" class="screen hidden">
+    <div id="resultIconRelay">🏆</div>
+    <h2 id="resultTitleRelay">Jeet Gaye!</h2>
+    
+    <div class="final-scores">
+      <div class="final-score-item">
+        <span id="finalP1NameRelay">P1</span>: <span id="finalP1ScoreRelay">0</span>
+      </div>
+      <div class="final-score-item">
+        <span id="finalP2NameRelay">P2</span>: <span id="finalP2ScoreRelay">0</span>
+      </div>
+      <div class="final-score-item">
+        <span id="finalP3NameRelay">P3</span>: <span id="finalP3ScoreRelay">0</span>
+      </div>
+      <div class="final-score-item">
+        <span id="finalP4NameRelay">P4</span>: <span id="finalP4ScoreRelay">0</span>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="window.location.href='../../Index.html'">🏠 Home</button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../../questions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyD7RwL8kwQ91P1vcPhXnxFNFIDQsWdUfhE",
+      authDomain: "ad-hoc-d078c.firebaseapp.com",
+      databaseURL: "https://ad-hoc-d078c-default-rtdb.firebaseio.com",
+      projectId: "ad-hoc-d078c",
+      storageBucket: "ad-hoc-d078c.firebasestorage.app",
+      messagingSenderId: "485452494263",
+      appId: "1:485452494263:web:edacb32bc6f1ed597a6432"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  
+  <link rel="stylesheet" href="relay.css">
+<script src="../firebase.js"></script>
+<script src="questions.js"></script>
+<script src="relay-api.js"></script>
+<script src="relay.js"></script>
+
+</body>
+</html>

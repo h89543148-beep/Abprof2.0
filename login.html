@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | AB-PROF</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">⚡ AB-PROF</div>
+        <h2>Welcome Back</h2>
+
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="📧 Email" required>
+            <input type="password" id="password" placeholder="🔒 Password" required>
+            <button type="submit" id="loginBtn">Login</button>
+            <div class="error-message" id="errorMsg"></div>
+        </form>
+
+        <div class="signup-link">
+            New user? <a href="../signup/signup.html">Create Account</a>
+        </div>
+    </div>
+<!-- Firebase SDKs - Pehle ye load honge -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<!-- Then YOUR firebase.js -->
+<script src="../firebase.js"></script>
+
+<!-- Then other scripts -->
+<script src="login.js"></script>
+</body>
+</html>
